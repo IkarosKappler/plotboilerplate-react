@@ -48,3 +48,8 @@ npm run styleguide
 ## License
 
 MIT © [ikaroskappler](https://github.com/ikaroskappler)
+
+
+### Credits
+Credits to ananthakumaran for the emacs-tsx-mode 'tide' https://github.com/ananthakumaran/tide
+Great work!

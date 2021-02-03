@@ -59,6 +59,7 @@
     "plotboilerplate": "^1.11.1",
     "prettier": "^2.0.4",
     "react": "^16.14.0",
+    "react-docgen-typescript": "^1.21.0",
     "react-dom": "^16.14.0",
     "react-scripts": "^3.4.1",
     "react-styleguidist": "^11.1.5",
