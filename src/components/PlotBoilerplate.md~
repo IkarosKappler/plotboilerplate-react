@@ -1,0 +1,5 @@
+PlotBoilerplate example:
+
+```js
+<PlotBoilerplate pizza="🍕" />
+```

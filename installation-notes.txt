@@ -1,0 +1,68 @@
+
+Ika = 오징어
+
+### 2021-02-03
+## https://medium.com/better-programming/building-a-react-components-library-f5a390d5973d
+
+npm i -g create-react-library
+
+create-react-library <your-lib-name>
+
+cd <your-lib-name>
+
+# Build library:
+$ npm start
+
+# Start library test:
+$ cd examples && npm start
+
+
+# Now install dev dependencies
+npm install --save-dev react react-dom
+
+
+# For me it was
+npm install --save-dev react react-dom plotboilerplate
+
+
+
+# For live previewing install this:
+npm install --save-dev react-styleguidist webpack
+
+
+# Then install babel
+npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/preset-react
+
+
+# Create .babelrc
+{
+    "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
+
+
+# For styleguide create styleguid.config.js
+## Note: I used tsx (not jsx) and the 'components' field here.
+module.exports = {
+  webpackConfig: {
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          loader: "babel-loader"
+        }
+      ]
+    }
+  },
+  components: 'src/components/**/*.tsx'
+};
+
+# Test start your styleguide (for what?)
+* Add "styleguide" : "styleguidist server" to the scripts section in the package.json
+npm run styleguidist
+
+
+# Create folder ./src/components/
+
+# Create your React component in ./src/components/YourComponent.tsx
+
