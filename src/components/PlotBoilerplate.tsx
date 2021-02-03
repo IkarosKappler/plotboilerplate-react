@@ -7,8 +7,11 @@
 import React from "react";
 
 
+interface PlotBoilerplateProps {
+    canvas : HTMLCanvasElement | SVGElement | string;
+}
 
-const PlotBoilerplate = ({text}) => {
+const PlotBoilerplate : React.FC<PlotBoilerplateProps> = ({canvas}) => {
        return (<button>{text}</button>);
 };
 
