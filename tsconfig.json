@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "outDir": "./dist/",
+    "module": "commonjs",
+    "lib": ["dom", "es6", "es2017"],
+    "target": "es5",
     "moduleResolution": "node",
     "jsx": "react",
     "sourceMap": true,
@@ -17,6 +18,6 @@
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src"],
+  "include": [".src/**/*"],
   "exclude": ["node_modules", "dist", "example"]
 }
