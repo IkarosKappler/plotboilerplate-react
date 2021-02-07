@@ -1,6 +1,6 @@
 {
   "name": "plotboilerplate-react",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Made with create-react-library",
   "author": "ikaroskappler",
   "license": "MIT",
@@ -41,7 +41,7 @@
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "8.1.0",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
@@ -64,7 +64,7 @@
     "react-scripts": "^3.4.1",
     "react-styleguidist": "^11.1.5",
     "typescript": "^3.7.5",
-    "webpack": "^5.20.1"
+    "webpack": "4.42.0"
   },
   "files": [
     "dist"
