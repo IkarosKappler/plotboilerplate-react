@@ -39,11 +39,20 @@ npm run build
 npm run start
 ```
 
+## Run Example
+```bash
+cd example
+npm run start
+```
+
 
 ## Run styleguide
 ```bash
 npm run styleguide
 ```
+
+### Todos:
+* How should I compile my raw Typescript files (from plotboilerplate) so React can find the declaration files?
 
 ## License
 
