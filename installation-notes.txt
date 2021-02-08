@@ -10,38 +10,38 @@ create-react-library <your-lib-name>
 
 cd <your-lib-name>
 
-# Build library:
+## Build library:
 $ npm start
 
-# Start library test:
+## Start library test:
 $ cd examples && npm start
 
 
-# Now install dev dependencies
+## Now install dev dependencies
 npm install --save-dev react react-dom
 
 
-# For me it was
+## For me it was
 npm install --save-dev react react-dom plotboilerplate
 
 
 
-# For live previewing install this:
+## For live previewing install this:
 npm install --save-dev react-styleguidist webpack
 
 
-# Then install babel
+## Then install babel
 npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/preset-react
 
 
-# Create .babelrc
+## Create .babelrc
 {
     "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
 
 
-# For styleguide create styleguid.config.js
-## Note: I used tsx (not jsx) and the 'components' field here.
+## For styleguide create styleguid.config.js
+### Note: I used tsx (not jsx) and the 'components' field here.
 module.exports = {
   webpackConfig: {
     module: {
@@ -57,12 +57,40 @@ module.exports = {
   components: 'src/components/**/*.tsx'
 };
 
-# Test start your styleguide (for what?)
+## Test start your styleguide (for what?)
 * Add "styleguide" : "styleguidist server" to the scripts section in the package.json
 npm run styleguidist
 
 
-# Create folder ./src/components/
+## Create folder ./src/components/
 
-# Create your React component in ./src/components/YourComponent.tsx
+## Create your React component in ./src/components/YourComponent.tsx
 
+
+## Troubleshooting
+### Class variables ("unexpected symbol).
+Class properties are neither part of the es2015 nor the react preset.
+
+You have to load the plugins that handles class properties:
+
+npm install babel-plugin-transform-class-properties babel-plugin-syntax-class-properties
+
+And in your .babelrc file (next to existing plugins or presets):
+
+"plugins": [
+   "syntax-class-properties",
+   "transform-class-properties"
+]
+
+Class properties are neither part of the es2015 nor the react preset.
+
+You have to load the plugins that handles class properties:
+
+npm install babel-plugin-transform-class-properties babel-plugin-syntax-class-properties
+
+And in your .babelrc file (next to existing plugins or presets):
+
+"plugins": [
+   "syntax-class-properties",
+   "transform-class-properties"
+]

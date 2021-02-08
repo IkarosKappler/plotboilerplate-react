@@ -7,10 +7,16 @@
 import React from "react";
 // TODO: why can't I import from "plotboilerplate"
 // Seems the type declarations are missing there
-import { PlotBoilerplate as PB } from "plotboilerplate/src/ts/PlotBoilerplate";
+// import { PlotBoilerplate as PB } from "plotboilerplate/src/ts/PlotBoilerplate";
+// import { PlotBoilerplate as PB } from "plotboilerplate";
+import { PlotBoilerplate } from "plotboilerplate";
+// import { PlotBoilerplate as PB } from "plotboilerplate/src/js/PlotBoilerplate";
+// import PlotBoilerplate from "plotboilerplate/src/js/module";
+
+// console.log("PlotBoilerplate.tsx", "PB", PlotBoilerplate );
 
 
-interface PlotBoilerplateProps {
+interface PlotBoilerplateComponentProps {
     // canvas : HTMLCanvasElement | SVGElement | string;
     fullSize? : boolean;
     fitToParent? : boolean;
@@ -19,18 +25,19 @@ interface PlotBoilerplateProps {
     enableKeys? : boolean;
 }
 
-export const PlotBoilerplate : React.FC<PlotBoilerplateProps> = ({ fullSize, fitToParent, enableMouse, enableTouch, enableKeys }) => {
+export const PlotBoilerplateComponent : React.FC<PlotBoilerplateComponentProps> = ({ fullSize, fitToParent, enableMouse, enableTouch, enableKeys }) => {
     // return (<button>{text}</button>);
 
-    const ref : React.RefObject<HTMLCanvasElement|null> = React.useRef<HTMLCanvasElement|null>(null);
-    const [pb,setPB] = React.useState<PB|null>(null);
+    const ref : React.RefObject<HTMLCanvasElement> = React.useRef<HTMLCanvasElement>(null);
+    const [pb,setPB] = React.useState<PlotBoilerplate|null>(null);
 
     React.useEffect( () => {
+	// console.log( "useEffect", PlotBoilerplate );
 	if( ref.current ) {
-	    setPB( new PB( { canvas : ref.current, fullSize, fitToParent, enableMouse, enableTouch, enableKeys } ) );
+	    setPB( new PlotBoilerplate( { canvas : ref.current, fullSize, fitToParent, enableMouse, enableTouch, enableKeys } ) );
 	    console.log('PB initialized', pb );
 	}
-    } );
+    }, [ref.current, setPB, PlotBoilerplate] );
 
     return (<canvas ref={ref}></canvas>);
 };
