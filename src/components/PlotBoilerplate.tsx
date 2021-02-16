@@ -9,7 +9,14 @@ import React from "react";
 // Seems the type declarations are missing there
 // import { PlotBoilerplate as PB } from "plotboilerplate/src/ts/PlotBoilerplate";
 // import { PlotBoilerplate as PB } from "plotboilerplate";
-import { PlotBoilerplate } from "plotboilerplate";
+
+// import { PlotBoilerplate } from "plotboilerplate";
+// import * as PB from "plotboilerplate/src/js/module";
+// import PB from "plotboilerplate/src/es2015/index";
+import * as PB from "plotboilerplate/src/es2015/index";
+// import PlotBoilerplate from "plotboilerplate";
+// import { PlotBoilerplate } from "plotboilerplate/src/js/module";
+
 // import { PlotBoilerplate as PB } from "plotboilerplate/src/js/PlotBoilerplate";
 // import PlotBoilerplate from "plotboilerplate/src/js/module";
 
@@ -29,15 +36,15 @@ export const PlotBoilerplateComponent : React.FC<PlotBoilerplateComponentProps> 
     // return (<button>{text}</button>);
 
     const ref : React.RefObject<HTMLCanvasElement> = React.useRef<HTMLCanvasElement>(null);
-    const [pb,setPB] = React.useState<PlotBoilerplate|null>(null);
+    const [pb,setPB] = React.useState<PB.PlotBoilerplate|null>(null);
 
     React.useEffect( () => {
 	// console.log( "useEffect", PlotBoilerplate );
 	if( ref.current ) {
-	    setPB( new PlotBoilerplate( { canvas : ref.current, fullSize, fitToParent, enableMouse, enableTouch, enableKeys } ) );
+	    setPB( new PB.PlotBoilerplate( { canvas : ref.current, fullSize, fitToParent, enableMouse, enableTouch, enableKeys } ) );
 	    console.log('PB initialized', pb );
 	}
-    }, [ref.current, setPB, PlotBoilerplate] );
+    }, [ref.current, setPB, PB.PlotBoilerplate] );
 
     return (<canvas ref={ref}></canvas>);
 };
