@@ -13,8 +13,7 @@ export const ExampleComponent = ({ text }: Props) => {
     return <div className={styles.test}>Example Component: {text}</div>
 }
 
-// export PlotBoilerplate;
-export * from './components/PlotBoilerplate';
+export { PlotBoilerplateComponent } from './components/PlotBoilerplateComponent';
 
 
 /* ReactDOM.render(
