@@ -15,6 +15,8 @@ export const ExampleComponent = ({ text }: Props) => {
 
 export { PlotBoilerplateComponent } from './components/PlotBoilerplateComponent';
 
+export { PlotBoilerplateProvider } from "./providers/PlotBoilerplateProvider/Provider";
+// export { PlotBoilerplateReducer } from "./providers/PlotBoilerplateReducer/Reducer";
 
 /* ReactDOM.render(
   <ExampleComponent text={"test"}></ExampleComponent>,

@@ -1,19 +1,16 @@
 /**
  * @author  Ikaros Kappler
- * @date    2021-02-03
+ * @date    2021-03-01
  * @version 0.0.1
  */
 
 import React from "react";
 
-import { PlotBoilerplate } from "plotboilerplate";
+import { Line, PlotBoilerplate, Vertex } from "plotboilerplate";
 
-interface PlotBoilerplateComponentProps {
-    fullSize? : boolean;
-    fitToParent? : boolean;
-    enableMouse? : boolean;
-    enableTouch? : boolean;
-    enableKeys? : boolean
+interface LineComponentProps {
+    a: Vertex;
+    b: Vertex;
 }
 
 export const PlotBoilerplateComponent : React.FC<PlotBoilerplateComponentProps> = ({
@@ -43,4 +40,3 @@ export const PlotBoilerplateComponent : React.FC<PlotBoilerplateComponentProps> 
 
     return (<canvas ref={ref}></canvas>);
 };
-
