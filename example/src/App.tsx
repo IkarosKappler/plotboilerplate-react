@@ -14,9 +14,8 @@ const App = () => {
   return (
     <PlotBoilerplateProvider>
       <ErrorBoundary>
-        <PlotBoilerplateComponent fullSize={true} enableTouch={true}>
-          <LineComponent a={new Vertex(-100, -100)} b={new Vertex(100, 100)} />
-        </PlotBoilerplateComponent>
+        <PlotBoilerplateComponent fullSize={true} enableTouch={true} />
+        <LineComponent a={new Vertex(-100, -100)} b={new Vertex(100, 100)} />
       </ErrorBoundary>
     </PlotBoilerplateProvider>
   )

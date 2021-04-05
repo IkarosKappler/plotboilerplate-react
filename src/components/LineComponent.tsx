@@ -15,15 +15,29 @@ interface LineComponentProps {
 }
 
 export const LineComponent: React.FC<LineComponentProps> = ({ a, b }) => {
-  const { isInitialized, addDrawable } = usePlotBoilerplateProvider()
+  const {
+    isInitialized,
+    addDrawable,
+    plotBoilerplate
+  } = usePlotBoilerplateProvider()
+  const [drawable, setDrawable] = React.useState<Line | null>(null)
 
   React.useEffect(() => {
-    // console.log('useEffect LineComponent', 'isInitialized', isInitialized)
     if (isInitialized) {
-      addDrawable(new Line(a, b))
-      //   console.log('Adding line drawable')
+      const line = new Line(a, b)
+      addDrawable(line)
+      setDrawable(line)
     }
   }, [isInitialized])
+
+  React.useEffect(() => {
+    if (!isInitialized || !drawable) {
+      return
+    }
+    drawable.a = a
+    drawable.b = b
+    plotBoilerplate?.redraw()
+  }, [a, b])
 
   return <span>Line</span>
 }
