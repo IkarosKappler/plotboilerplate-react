@@ -4,22 +4,25 @@
 
 // import React, { useReducer } from 'React';
 
-import { PlotBoilerplateState } from "./Provider";
+import { PlotBoilerplateState } from './Provider'
 
 export interface Action {
-    actionType : any;
-    value : any;
-};
+  actionType: any
+  value: any
+}
 
-export const reducer = (state:PlotBoilerplateState, action:Action) => {
-    switch (action.actionType) {
-	case 'increment':
-	    //return { count: state.count + 1 };
-	    return state;
-	default:
-	    return state;
-    }
-};
+export const reducer = (state: PlotBoilerplateState, action: Action) => {
+  switch (action.actionType) {
+    case 'addDrawable':
+      state.plotBoilerplate?.add(action.value)
+      return { ...state, drawables: [...state.drawables, action.value] }
+    case 'setPlotBoilerplate':
+      console.log('Setting plotboilerplate instance')
+      return { ...state, plotBoilerplate: action.value }
+    default:
+      return state
+  }
+}
 
 /* function Increment({ initialCount }) {
     const [state, dispatch] = useReducer(reducer, { count: 0 });  return (
