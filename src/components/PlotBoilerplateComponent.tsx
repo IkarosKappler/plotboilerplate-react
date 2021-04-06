@@ -4,7 +4,7 @@
  * @version 0.0.1
  */
 
-import React from 'react'
+import * as React from 'react'
 
 import { PlotBoilerplate } from 'plotboilerplate'
 import { usePlotBoilerplateProvider } from '../providers/PlotBoilerplateProvider/Provider'

@@ -3,7 +3,7 @@
  */
 
 import { Drawable, PlotBoilerplate } from 'plotboilerplate'
-import React from 'react'
+import * as React from 'react'
 import { Action, reducer } from './Reducer'
 
 export interface PlotBoilerplateState {

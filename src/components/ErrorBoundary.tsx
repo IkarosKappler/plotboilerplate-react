@@ -2,7 +2,9 @@
  * @date 2021-03-01
  */
 
-import React, { Component, ErrorInfo, ReactNode } from "react";
+// import React, { Component, ErrorInfo, ReactNode } from "react";
+import * as React from "react";
+import { Component, ErrorInfo, ReactNode } from "react";
 
 interface Props {
     children: ReactNode;
