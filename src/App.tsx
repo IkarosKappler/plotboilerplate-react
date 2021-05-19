@@ -1,6 +1,3 @@
-import React from 'react'
-
-// import { PlotBoilerplateComponent } from 'plotboilerplate-react';
 import { PlotBoilerplateComponent } from './components';
 import { PlotBoilerplateProvider } from './providers/index';
 import 'plotboilerplate-react/dist/index.css';
