@@ -66,6 +66,13 @@ cd example
 npm run start
 ```
 
+### Re-install updated package only after built
+
+```bash
+cd example
+npm i plotboilerplate-react @types/plotboilerplate-react
+```
+
 ### Todos:
 
 - How should I compile my raw Typescript files (from plotboilerplate) so React can find the declaration files?
