@@ -2,13 +2,13 @@
  * @date 2021-03-01
  */
 
-import { Drawable, PlotBoilerplate } from 'plotboilerplate'
+import { Drawable, PlotBoilerplate, Vertex } from 'plotboilerplate'
 import * as React from 'react'
-import { Action, reducer } from './Reducer'
+import { PBAction, reducer } from './Reducer'
 
 export interface PlotBoilerplateState {
-  vertices: Array<any>
-  drawables: Array<any>
+  vertices: Array<Vertex>;
+  drawables: Array<Drawable>;
   plotBoilerplate: PlotBoilerplate | null
 }
 
@@ -20,7 +20,7 @@ const initialState: PlotBoilerplateState = {
 
 export const PlotBoilerplateContext = React.createContext({
   state: initialState,
-  dispatch: (_action: Action) => {
+  dispatch: (_action: PBAction) => {
     console.warn('Fake dispatch. This should never be called!', _action)
   }
 })
@@ -32,7 +32,7 @@ export const PlotBoilerplateProvider: React.FC = ({ children }) => {
 
   const value = React.useMemo<{
     state: PlotBoilerplateState
-    dispatch: React.Dispatch<Action>
+    dispatch: React.Dispatch<PBAction>
   }>(
     () => ({
       state,
@@ -49,30 +49,34 @@ export const PlotBoilerplateProvider: React.FC = ({ children }) => {
 }
 
 export const usePlotBoilerplateProvider = () => {
-  const context = React.useContext(PlotBoilerplateContext)
-  const { state, dispatch } = context
+  const context = React.useContext(PlotBoilerplateContext);
+  const { state, dispatch } = context;
 
   if (!state) {
     console.warn(
       'Using PlotBoilerplateProvider without a PlotBoilerplateContext'
     )
     throw 'Using PlotBoilerplateProvider without a PlotBoilerplateContext'
-  }
+  };
 
   var setPlotBoilerplate = (pb: PlotBoilerplate) => {
-    dispatch({ actionType: 'setPlotBoilerplate', value: pb })
-  }
+    dispatch({ actionType: 'SET_PLOTBOILERPLATE', value: pb });
+  };
 
   var addDrawable = (d: Drawable) => {
-    // console.log('AddDrawable')
-    dispatch({ actionType: 'addDrawable', value: d })
-  }
+    dispatch({ actionType: 'ADD_DRAWABLE', value: d });
+  };
+
+  var addVertex = (d: Drawable) => {
+    dispatch({ actionType: 'ADD_VERTEX', value: d });
+  };
 
   return React.useMemo(
     () => ({
       isInitialized: state.plotBoilerplate !== null,
       plotBoilerplate: state.plotBoilerplate,
       addDrawable,
+      addVertex,
       setPlotBoilerplate
     }),
     [state]

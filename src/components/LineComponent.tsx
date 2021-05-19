@@ -19,12 +19,12 @@ export const LineComponent: React.FC<LineComponentProps> = ({ a, b }) => {
     isInitialized,
     addDrawable,
     plotBoilerplate
-  } = usePlotBoilerplateProvider()
+  } = usePlotBoilerplateProvider();
   const [drawable, setDrawable] = React.useState<Line | null>(null)
 
   React.useEffect(() => {
     if (isInitialized) {
-      const line = new Line(a, b)
+      const line : Line = new Line(a, b)
       addDrawable(line)
       setDrawable(line)
     }

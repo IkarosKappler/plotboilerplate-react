@@ -1,9 +1,6 @@
-import React from 'react'
-
-import { PlotBoilerplateComponent, LineComponent } from 'plotboilerplate-react'
+import { PlotBoilerplateComponent, LineComponent, VertexComponent } from 'plotboilerplate-react'
 import { PlotBoilerplateProvider } from 'plotboilerplate-react'
 
-// import 'plotboilerplate-react/dist/index.css';
 import ErrorBoundary from './ErrorBoundary'
 import { Vertex } from 'plotboilerplate'
 
@@ -16,9 +13,11 @@ const App = () => {
       <ErrorBoundary>
         <PlotBoilerplateComponent fullSize={true} enableTouch={true} />
         <LineComponent a={new Vertex(-100, -100)} b={new Vertex(100, 100)} />
+        <VertexComponent x={-100} y={0} />
+        <VertexComponent x={100} y={0} />
       </ErrorBoundary>
     </PlotBoilerplateProvider>
   )
 }
 
-export default App
+export default App;

@@ -28,11 +28,10 @@ export const PlotBoilerplateComponent: React.FC<PlotBoilerplateComponentProps> =
   const ref: React.RefObject<HTMLCanvasElement> = React.useRef<HTMLCanvasElement>(
     null
   )
-  const { isInitialized, setPlotBoilerplate } = usePlotBoilerplateProvider()
-  //   console.log('PlotBoilerplate', 'isInitialized', isInitialized)
+  const { isInitialized, setPlotBoilerplate } = usePlotBoilerplateProvider();
 
   React.useEffect(() => {
-    // console.log('useEffect PlotBoilerplate', 'isInitialized', isInitialized)
+
     if (!isInitialized && ref.current) {
       setPlotBoilerplate(
         new PlotBoilerplate({
@@ -44,9 +43,8 @@ export const PlotBoilerplateComponent: React.FC<PlotBoilerplateComponentProps> =
           enableKeys
         })
       )
-      //   console.log('PB initialized')
     }
-  }, [isInitialized, ref.current, setPlotBoilerplate, PlotBoilerplate])
+  }, [isInitialized, ref.current, setPlotBoilerplate, PlotBoilerplate]);
 
-  return <canvas ref={ref}>{children}</canvas>
+  return (<canvas ref={ref}>{children}</canvas>);
 }
