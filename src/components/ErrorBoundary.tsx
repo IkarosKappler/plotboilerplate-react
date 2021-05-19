@@ -14,7 +14,7 @@ interface State {
     hasError: boolean;
 }
 
-class ErrorBoundary extends Component<Props, State> {
+export class ErrorBoundary extends Component<Props, State> {
     public state: State = {
 	hasError: false
     };

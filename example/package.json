@@ -15,6 +15,7 @@
     "@testing-library/user-event": "file:../node_modules/@testing-library/user-event",
     "@types/jest": "file:../node_modules/@types/jest",
     "@types/node": "file:../node_modules/@types/node",
+    "@types/plotboilerplate-react": "file:../dist/src",
     "@types/react": "file:../node_modules/@types/react",
     "@types/react-dom": "file:../node_modules/@types/react-dom",
     "alloyfinger-typescript": "^0.1.19",

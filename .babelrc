@@ -4,5 +4,5 @@
     	       "syntax-class-properties",
     	       "transform-class-properties"
     ],
-    "ignore": [ "**/.#*"]
+    "ignore": [ "**/.#*", "example"]
 }

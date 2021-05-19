@@ -1,7 +1,7 @@
-import { PlotBoilerplateComponent, LineComponent, VertexComponent } from 'plotboilerplate-react'
+import { ErrorBoundary, PlotBoilerplateComponent, LineComponent, VertexComponent } from 'plotboilerplate-react'
 import { PlotBoilerplateProvider } from 'plotboilerplate-react'
 
-import ErrorBoundary from './ErrorBoundary'
+// import ErrorBoundary from './ErrorBoundary'
 import { Vertex } from 'plotboilerplate'
 
 // TODO:
