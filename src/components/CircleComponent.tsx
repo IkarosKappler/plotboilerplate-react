@@ -10,11 +10,12 @@
  import { usePlotBoilerplateProvider } from '../providers/PlotBoilerplateProvider/Provider'
  
  interface CircleComponentProps {
-   center: Vertex;
+   centerx: number;
+   centery: number;
    radius: number;
  }
  
- export const CircleComponent: React.FC<CircleComponentProps> = ({ center, radius }) => {
+ export const CircleComponent: React.FC<CircleComponentProps> = ({ centerx, centery, radius }) => {
    const {
      isInitialized,
      addDrawable,
@@ -24,7 +25,7 @@
  
    React.useEffect(() => {
      if (isInitialized) {
-       const circle : Circle = new Circle(center, radius);
+       const circle : Circle = new Circle( new Vertex(centerx, centery), radius);
        addDrawable(circle);
        setDrawable(circle);
      }
@@ -34,10 +35,11 @@
      if (!isInitialized || !drawable) {
        return
      }
-     drawable.center = center;
+     drawable.center.x = centerx;
+     drawable.center.y = centery;
      drawable.radius = radius;
      plotBoilerplate?.redraw()
-   }, [center, radius])
+   }, [centerx, centery, radius])
  
    return <span>Circle</span>
  }

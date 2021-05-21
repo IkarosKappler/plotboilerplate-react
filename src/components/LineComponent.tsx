@@ -10,11 +10,13 @@ import { Line, Vertex } from 'plotboilerplate'
 import { usePlotBoilerplateProvider } from '../providers/PlotBoilerplateProvider/Provider'
 
 interface LineComponentProps {
-  a: Vertex
-  b: Vertex
+  ax: number;
+  ay: number;
+  bx: number;
+  by: number;
 }
 
-export const LineComponent: React.FC<LineComponentProps> = ({ a, b }) => {
+export const LineComponent: React.FC<LineComponentProps> = ({ ax, ay, bx, by }) => {
   const {
     isInitialized,
     addDrawable,
@@ -24,7 +26,7 @@ export const LineComponent: React.FC<LineComponentProps> = ({ a, b }) => {
 
   React.useEffect(() => {
     if (isInitialized) {
-      const line : Line = new Line(a, b)
+      const line : Line = new Line(new Vertex(ax,ay), new Vertex(bx,by))
       addDrawable(line)
       setDrawable(line)
     }
@@ -34,10 +36,12 @@ export const LineComponent: React.FC<LineComponentProps> = ({ a, b }) => {
     if (!isInitialized || !drawable) {
       return
     }
-    drawable.a = a
-    drawable.b = b
+    drawable.a.x = ax;
+     drawable.a.y = ay;
+     drawable.b.x = bx;
+     drawable.b.y = by;
     plotBoilerplate?.redraw()
-  }, [a, b])
+  }, [ax, ay, bx, by])
 
   return <span>Line</span>
 }
