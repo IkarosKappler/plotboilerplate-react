@@ -2,9 +2,14 @@
  * @date 2021-03-01
  */
 
+import { Drawable } from 'plotboilerplate';
 import { PlotBoilerplateState } from './Provider';
 
-export type ActionName = 'ADD_DRAWABLE' | 'ADD_VERTEX' | 'SET_PLOTBOILERPLATE';
+export type ActionName =
+  | 'ADD_DRAWABLE'
+  | 'ADD_VERTEX'
+  | 'REMOVE_DRAWABLE'
+  | 'SET_PLOTBOILERPLATE';
 
 // export interface Action {
 //   actionType: string;
@@ -18,6 +23,14 @@ export const reducer = (state: PlotBoilerplateState, action: PBAction) => {
     case 'ADD_DRAWABLE':
       state.plotBoilerplate?.add(action.value);
       return { ...state, drawables: [...state.drawables, action.value] };
+    case 'REMOVE_DRAWABLE':
+      state.plotBoilerplate?.remove(action.value);
+      return {
+        ...state,
+        drawables: state.drawables.filter(
+          (drwbl: Drawable) => drwbl.uid !== action.value.uid
+        )
+      };
     case 'ADD_VERTEX':
       state.plotBoilerplate?.add(action.value);
       return { ...state, vertices: [...state.vertices, action.value] };

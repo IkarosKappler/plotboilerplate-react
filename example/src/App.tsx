@@ -1,11 +1,16 @@
-import { CircleComponent, CircleSectorComponent, ErrorBoundary, PlotBoilerplateComponent, LineComponent, PBImageComponent, VectorComponent, VEllipseComponent, VEllipseSectorComponent, VertexComponent, PolygonComponent, TriangleComponent } from 'plotboilerplate-react'
-import { PlotBoilerplateProvider } from 'plotboilerplate-react'
+import { CircleComponent, CircleSectorComponent, ErrorBoundary, PlotBoilerplateComponent, LineComponent, PBImageComponent, VectorComponent, VEllipseComponent, VEllipseSectorComponent, VertexComponent, PolygonComponent, TriangleComponent, BezierPathComponent } from 'plotboilerplate-react'
+import { gup } from "plotboilerplate/src/cjs/utils/gup";
+import { PlotBoilerplateProvider } from 'plotboilerplate-react';
 
 const App = () => {
+
+  const uriParams = gup();
+  console.log( uriParams );
+
   return (
     <PlotBoilerplateProvider>
       <ErrorBoundary>
-        <PlotBoilerplateComponent fullSize={true} enableTouch={true} />
+        <PlotBoilerplateComponent fullSize={true} enableTouch={true} {...uriParams} />
         <LineComponent ax={-100} ay={-100} bx={100} by={100} />
         <VertexComponent x={-20} y={110} />
         <VertexComponent x={20} y={110} />
@@ -21,6 +26,15 @@ const App = () => {
         <PBImageComponent src={"logo-512.png"} upperleftx={-20} upperlefty={-130} lowerrightx={20} lowerrighty={-90} />
         <TriangleComponent ax={130} ay={0} bx={100} by={-20} cx={100} cy={20} />
         <TriangleComponent ax={-130} ay={0} bx={-100} by={-20} cx={-100} cy={20} />
+        <BezierPathComponent data={[
+          0, -230, 50, -230,
+          230, -50, 230, 0, 230, 50,
+          50, 230, 0, 230, -50, 230,
+          -230, 50, -230, 0, -230, -50,
+          -50, -230
+          // 0, -200
+          ]} 
+          adjustCircular={true} />
       </ErrorBoundary>
     </PlotBoilerplateProvider>
   )

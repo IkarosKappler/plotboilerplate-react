@@ -71,12 +71,17 @@ export const usePlotBoilerplateProvider = () => {
     dispatch({ actionType: 'ADD_VERTEX', value: d });
   };
 
+  var removeDrawable = (d: Drawable) => {
+    dispatch({ actionType: 'REMOVE_DRAWABLE', value: d });
+  };
+
   return React.useMemo(
     () => ({
       isInitialized: state.plotBoilerplate !== null,
       plotBoilerplate: state.plotBoilerplate,
       addDrawable,
       addVertex,
+      removeDrawable,
       setPlotBoilerplate
     }),
     [state]

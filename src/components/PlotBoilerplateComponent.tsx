@@ -10,6 +10,7 @@ import { PlotBoilerplate } from 'plotboilerplate'
 import { usePlotBoilerplateProvider } from '../providers/PlotBoilerplateProvider/Provider'
 
 interface PlotBoilerplateComponentProps {
+  backgroundColor?: string;
   fullSize?: boolean
   fitToParent?: boolean
   enableMouse?: boolean
@@ -18,6 +19,7 @@ interface PlotBoilerplateComponentProps {
 }
 
 export const PlotBoilerplateComponent: React.FC<PlotBoilerplateComponentProps> = ({
+  backgroundColor,
   fullSize,
   fitToParent,
   enableMouse,
@@ -36,6 +38,7 @@ export const PlotBoilerplateComponent: React.FC<PlotBoilerplateComponentProps> =
       setPlotBoilerplate(
         new PlotBoilerplate({
           canvas: ref.current,
+          backgroundColor,
           fullSize,
           fitToParent,
           enableMouse,
